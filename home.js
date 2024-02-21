@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 Dengue outbreaks are occurring in many countries of the world. Protect yourself from mosquito bites.</p>
   
                 <p><strong>Dengue Vaccine</strong><br>
-                A dengue vaccine is approved for use in children aged 9 to 16 years with laboratory-confirmed previous dengue virus infection and living in areas where dengue is endemic (common). Endemic areas include some U.S. territories and freely associated states. The vaccine is not approved for use in U.S. travelers who are visiting but not living in an area where dengue is common.</p>
+                A dengue vaccine is approved for use in children aged 9 to 16 years with laboratory-confirmed previous dengue virus infection and living in areas where dengue is endemic (common).</p>
             </div>
             <div class="slider-container">
                 <!-- Slider HTML structure -->
@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img src="den4.jpg" alt="Dengue Image 1">
                 </div>
                 <div class="slide">
-                    <img src="carousel2.jpg" alt="Dengue Image 2">
+                    <img src="mos3.jpg" alt="Dengue Image 2">
                 </div>
                 <div class="slide">
-                    <img src="carousel3.jpg" alt="Dengue Image 3">
+                    <img src="mos2.jpg" alt="Dengue Image 3">
                 </div>
                 <div class="slide">
                     <img src="carousel4.jpg" alt="Dengue Image 4">
@@ -155,3 +155,37 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('dataStatsLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      var dataStatsContent = `
+          <div class="data-stats-section">
+              <div class="data-stats-images">
+                  <img src="Figure_1_ActiveCases.png" alt="Stat 1" onclick="showStatDetails(1)">
+                  <img src="Figure_2_Deaths.png" alt="Stat 2" onclick="showStatDetails(2)">
+                  <img src="Figure_3_AffectedStates.png" alt="Stat 3" onclick="showStatDetails(3)">
+                  <img src="Figure_4_VaccinatedStates.png" alt="Stat 4" onclick="showStatDetails(4)">
+                  <img src="Figure_5_PieChart.png" alt="Stat 5" onclick="showStatDetails(5)">
+              </div>
+              <div id="statDetails"></div>
+          </div>
+      `;
+
+      var mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML = dataStatsContent;
+
+      mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+function showStatDetails(statNumber) {
+  var statDetails = document.getElementById('statDetails');
+  // Replace the following lines with the actual data or statistics for each image
+  var statDetailsHTML = `
+      <h3>Stat ${statNumber}</h3>
+      <p>Details and statistics for Stat ${statNumber}.</p>
+  `;
+  statDetails.innerHTML = statDetailsHTML;
+}
